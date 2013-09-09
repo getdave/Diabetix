@@ -8,7 +8,8 @@ window.diabetix = {
     Routers: {},
     init: function () {
         'use strict';
-        console.log('Hello from Backbone!');
+        // Create our global collection of **Todos**.
+        diabetix.Foods = new diabetix.Collections.FoodsCollection();
     }
 };
 
