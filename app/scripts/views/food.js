@@ -8,7 +8,7 @@ diabetix.Views = diabetix.Views || {};
     diabetix.Views.FoodView = Backbone.View.extend({
 
     	initialize: function() {
-    		this.render();
+    	
     	},
 
     	tagName: 'li',

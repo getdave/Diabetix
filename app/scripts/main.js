@@ -74,8 +74,14 @@ window.diabetix = {
             beanId: 11371
             }
         ]);
+
         
-        diabetix.foodView = new diabetix.Views.FoodView({model: diabetix.foodModel});
+        diabetix.foodsView = new diabetix.Views.FoodsView({
+            collection: diabetix.foodsCollection
+        });
+
+        $(document.body).prepend(diabetix.foodsView.render().el);
+        
     }
 };
 
