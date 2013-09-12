@@ -7,7 +7,7 @@ diabetix.Models = diabetix.Models || {};
 
     diabetix.Models.FoodModel = Backbone.Model.extend({
     	initialize: function() {
-    		console.log(this.model);
+    		
     	}
     });
 
