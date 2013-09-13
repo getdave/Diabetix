@@ -5,9 +5,11 @@ diabetix.Collections = diabetix.Collections || {};
 (function () {
     'use strict';
 
-    diabetix.Collections.FoodsCollection = Backbone.Collection.extend({
+    diabetix.Collections.Foods = Backbone.Collection.extend({
 
-        model: diabetix.Models.FoodModel
+        model: diabetix.Models.Food,
+
+        url: "/scripts/data/foods-2011-10-03.json"
 
     });
 
