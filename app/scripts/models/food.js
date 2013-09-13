@@ -6,7 +6,7 @@ diabetix.Models = diabetix.Models || {};
     'use strict';
 
     diabetix.Models.Food = Backbone.Model.extend({
-
+    	idAttribute: "_id"
     });
 
 })();
