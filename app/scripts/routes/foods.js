@@ -84,12 +84,12 @@ diabetix.Routers = diabetix.Routers || {};
 	        ]);
 
 	        // View: List of Foods
-	        diabetix.foodsView = new diabetix.Views.FoodsView({
+	        diabetix.foodListView = new diabetix.Views.FoodsListView({
 	            collection: diabetix.foodsCollection
 	        });
 
 
-	        $('#main').append(diabetix.foodsView.render().el);
+	        $('#main').append(diabetix.foodListView.render().el);
 	    }
     });
 

@@ -5,7 +5,7 @@ diabetix.Views = diabetix.Views || {};
 (function () {
     'use strict';
 
-    diabetix.Views.FoodsView = Backbone.View.extend({
+    diabetix.Views.FoodsListView = Backbone.View.extend({
 
         tagName: 'ul',
         className: 'list-group',
