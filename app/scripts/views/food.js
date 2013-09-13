@@ -12,6 +12,7 @@ diabetix.Views = diabetix.Views || {};
     	},
 
     	tagName: 'li',
+        className: 'list-group-item',
 
         template: JST['app/scripts/templates/food.ejs'],
 

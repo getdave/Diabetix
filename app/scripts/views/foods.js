@@ -8,6 +8,7 @@ diabetix.Views = diabetix.Views || {};
     diabetix.Views.FoodsView = Backbone.View.extend({
 
         tagName: 'ul',
+        className: 'list-group',
 
         render: function() {
         	//console.log(this.collection);
