@@ -17,6 +17,9 @@ diabetix.Routers = diabetix.Routers || {};
 	    },
 
 	    index: function() {
+
+	    	diabetix.searchView = new diabetix.Views.SearchView();
+
 	    	// Model: Individual Food
 	    	diabetix.food = new diabetix.Models.Food();
 
