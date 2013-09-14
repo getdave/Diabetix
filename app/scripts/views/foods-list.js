@@ -10,13 +10,14 @@ diabetix.Views = diabetix.Views || {};
 
         initialize:function () {
             this.collection.bind("reset", this.render, this);
+            
         },
 
         tagName: 'ul',
         className: 'list-group',
 
         render: function() {
-            //console.log(this.collection);
+            this.$el.html('');
         	this.collection.each(function(food) {
         		var foodView = new diabetix.Views.FoodView({
         			model: food
@@ -24,9 +25,11 @@ diabetix.Views = diabetix.Views || {};
         		this.$el.append(foodView.render().el);
         	},this); 
 
-            $('#main').append(this.el);
+            console.log(this.el);
+
+            $('#results').html(this.el);
     		return this;
-        }
+        },
 
     });
 

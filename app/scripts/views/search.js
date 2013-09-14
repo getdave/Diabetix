@@ -9,14 +9,34 @@ diabetix.Views = diabetix.Views || {};
         className: 'app-search',
         template: JST['app/scripts/templates/search.ejs'],
 
+        events: {
+			"submit": "parseQuery",
+			"click #resetbutton": "clearSearch"
+		},
+
         initialize: function() {
-        	this.render();
+			// Immediately render to page
+			this.render();
+
+			// Must be after render
+        	this.$input 	= this.$('#search-text');
+			this.$sbutton 	= this.$('#search-submit');
+			this.$reset 	= this.$('#search-reset');
+
         },
 
         render: function() {
         	this.$el.html( this.template() );
         	$('#main').prepend(this.el);
 			return this;
+        },
+
+        parseQuery: function(ev) {
+        	ev.preventDefault();
+        	var query = this.$input.val();        	
+        	diabetix.Evt.trigger("search:query", query);
+
+        	
         },
 
     });

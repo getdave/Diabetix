@@ -31,7 +31,7 @@ diabetix.Routers = diabetix.Routers || {};
 	            collection: diabetix.foods
 	        });
 
-	        diabetix.foods.fetch({reset:true});
+	        diabetix.foods.update();
 	       
 
 

@@ -8,7 +8,9 @@ diabetix.Collections = diabetix.Collections || {};
     diabetix.Collections.Foods = Backbone.Collection.extend({
 
     	initialize: function(options) {
-    		this.searchQuery = "Bread";
+    		this.searchQuery = "";
+    		diabetix.Evt.bind("search:query", this.update, this);
+    		
     	},
         
         model: diabetix.Models.Food,
@@ -28,6 +30,18 @@ diabetix.Collections = diabetix.Collections || {};
         parse: function (response) {
 		    return response.hits;
 		},
+
+		update: function(query) {
+			var query = $.trim(query);
+        	if (query !== '') {
+				this.searchQuery = query;
+				this.fetch({
+					data: {},
+	    			processData: true,
+	    			reset: true
+				});
+			}
+		}
     	
     });
 
