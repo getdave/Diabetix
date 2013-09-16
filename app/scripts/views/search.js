@@ -33,10 +33,8 @@ diabetix.Views = diabetix.Views || {};
 
         parseQuery: function(ev) {
         	ev.preventDefault();
-        	var query = this.$input.val();        	
+        	var query = this.$input.val();
         	diabetix.Evt.trigger("search:query", query);
-
-        	
         },
 
     });

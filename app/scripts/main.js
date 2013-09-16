@@ -10,7 +10,7 @@ window.diabetix = {
     init: function () {
         'use strict';
         _.extend(diabetix.Evt, Backbone.Events);
-        var app = new diabetix.Routers.FoodsRouter();
+        diabetix.foodsRouter = new diabetix.Routers.FoodsRouter();
         Backbone.history.start();
     }
 };
