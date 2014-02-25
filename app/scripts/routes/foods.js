@@ -8,7 +8,7 @@ diabetix.Routers = diabetix.Routers || {};
     diabetix.Routers.FoodsRouter = Backbone.Router.extend({
     	routes:{
 	        "": 			"index",
-	       	"foods/:id": 	"foodDetail"
+	       	"search/:query": 	"search",
 	    },
 	 
 	    initialize:function () {
@@ -32,10 +32,10 @@ diabetix.Routers = diabetix.Routers || {};
 	        });
 
 	        diabetix.foods.update();
-	       
+	    },
 
-
-
+	    search: function(query) {
+	    	console.log("Searching for " + query);
 	    },
 
 	    foodDetail: function(id) {
