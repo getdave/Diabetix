@@ -27,7 +27,7 @@ diabetix.Views = diabetix.Views || {};
 
         render: function() {
         	this.$el.html( this.template() );
-        	$('#main').prepend(this.el);
+        	$('.content').prepend(this.el);
 			return this;
         },
 

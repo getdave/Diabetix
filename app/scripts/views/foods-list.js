@@ -14,7 +14,7 @@ diabetix.Views = diabetix.Views || {};
         },
 
         tagName: 'ul',
-        className: 'list-group',
+        className: 'table-view',
 
         render: function() {
             this.$el.html('');
