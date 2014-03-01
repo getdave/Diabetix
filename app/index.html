@@ -9,6 +9,8 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" type="text/css" href="bower_components/ratchet/dist/ratchet.css">
     
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link rel="stylesheet" href="styles/main.css">
@@ -17,18 +19,20 @@
         <!-- endbuild -->
     </head>
     <body>
-        
-        <header class="container">
-            <div class="page-header">
-              <h1>Diabetix <small>the carb counter for Diabetics</small></h1>
-            </div>
-        </header>
 
-        <div id="content" class="container">
-            <div id="main">
-                
-                <div id="results"></div>
-            </div>
+        <header class="bar bar-nav">
+            <h1 class="title">Diabetix</h1>
+        </header>
+        
+        <!-- Block button in standard bar fixed below top bar -->
+        <div class="bar bar-standard bar-header-secondary">
+
+        </div>
+
+        <div class="content">
+            <p class="content-padded">Diabetix is a work in progress demo app to help Diabetics count carbohydrates in common food types.</p>
+
+            <div id="results" class="card"></div>
         </div>
 
         <!--[if lt IE 7]>
@@ -47,23 +51,9 @@
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/backbone/backbone.js"></script>
+        <script src="bower_components/ratchet/dist/ratchet.js"></script>
         <!-- endbuild -->
 
-        <!-- build:js scripts/plugins.js -->
-        <script src="bower_components/sass-bootstrap/js/bootstrap-affix.js"></script>
-        <script src="bower_components/sass-bootstrap/js/bootstrap-alert.js"></script>
-        <script src="bower_components/sass-bootstrap/js/bootstrap-dropdown.js"></script>
-        <script src="bower_components/sass-bootstrap/js/bootstrap-tooltip.js"></script>
-        <script src="bower_components/sass-bootstrap/js/bootstrap-modal.js"></script>
-        <script src="bower_components/sass-bootstrap/js/bootstrap-transition.js"></script>
-        <script src="bower_components/sass-bootstrap/js/bootstrap-button.js"></script>
-        <script src="bower_components/sass-bootstrap/js/bootstrap-popover.js"></script>
-        <script src="bower_components/sass-bootstrap/js/bootstrap-typeahead.js"></script>
-        <script src="bower_components/sass-bootstrap/js/bootstrap-carousel.js"></script>
-        <script src="bower_components/sass-bootstrap/js/bootstrap-scrollspy.js"></script>
-        <script src="bower_components/sass-bootstrap/js/bootstrap-collapse.js"></script>
-        <script src="bower_components/sass-bootstrap/js/bootstrap-tab.js"></script>
-        <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/main.js -->
         <script src="scripts/main.js"></script>

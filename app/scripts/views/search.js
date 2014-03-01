@@ -21,13 +21,12 @@ diabetix.Views = diabetix.Views || {};
 			// Must be after render
         	this.$input 	= this.$('#search-text');
 			this.$sbutton 	= this.$('#search-submit');
-			this.$reset 	= this.$('#search-reset');
 
         },
 
         render: function() {
         	this.$el.html( this.template() );
-        	$('#main').prepend(this.el);
+        	$('.bar-header-secondary').append(this.el);
 			return this;
         },
 

@@ -10,9 +10,8 @@ diabetix.Views = diabetix.Views || {};
     	initialize: function() {
     	
     	},
-
     	tagName: 'li',
-        className: 'list-group-item',
+        className: 'table-view-cell',
 
         template: JST['app/scripts/templates/food.ejs'],
 
