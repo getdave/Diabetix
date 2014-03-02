@@ -8,7 +8,6 @@ diabetix.Routers = diabetix.Routers || {};
     diabetix.Routers.FoodsRouter = Backbone.Router.extend({
     	routes: {
 	       	"search/:query" : "search",
-	       	"meals/new"		: "mealsAdd",
 	       	"meals"			: "mealsList",
 	        ""				: "index",
 	        "*other"    	: "defaultRoute"
@@ -42,6 +41,8 @@ diabetix.Routers = diabetix.Routers || {};
 
 
 	    mealsList: function(id) {
+
+
 	    	// Model: a Meal
 	    	diabetix.meal = new diabetix.Models.MealModel();
 
@@ -53,14 +54,16 @@ diabetix.Routers = diabetix.Routers || {};
 				{ id: 5, name: "Bland Meal" },
 	        ]);
 
+	    	diabetix.addMealFormView = new diabetix.Views.AddMealFormView({
+	            collection: diabetix.meals
+	        });
+
 	        diabetix.mealListView = new diabetix.Views.MealsListView({
 	            collection: diabetix.meals
 	        });
 	    },
 
-	    mealsAdd: function() {
-
-	    },
+	    
 
 	    defaultRoute: function(other) {
 	    	console.log("Default fallback route. You attempted to reach " + other);

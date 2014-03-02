@@ -13,7 +13,7 @@ diabetix.Models = diabetix.Models || {};
         },
 
         defaults: {
-            title: ""
+            name: "Untitled Meal"
         },
 
         validate: function(attrs, options) {
