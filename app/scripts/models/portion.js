@@ -7,19 +7,15 @@ diabetix.Models = diabetix.Models || {};
 
     diabetix.Models.PortionModel = Backbone.RelationalModel.extend({
 
-        url: '',
-
         initialize: function() {
         },
 
         defaults: {
+            weight: 100
         },
 
         validate: function(attrs, options) {
-        },
 
-        parse: function(response, options)  {
-            return response;
         }
     });
 

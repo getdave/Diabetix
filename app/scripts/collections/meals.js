@@ -7,7 +7,10 @@ diabetix.Collections = diabetix.Collections || {};
 
     diabetix.Collections.MealsCollection = Backbone.Collection.extend({
 
-        model: diabetix.Models.MealsModel
+        model: diabetix.Models.MealModel,
+
+        localStorage: new Backbone.LocalStorage("Diabetix-MealCollection")
+
 
     });
 

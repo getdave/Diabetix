@@ -13,6 +13,7 @@ diabetix.Models = diabetix.Models || {};
         },
 
         defaults: {
+            title: ""
         },
 
         validate: function(attrs, options) {
