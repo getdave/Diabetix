@@ -7,10 +7,12 @@ diabetix.Collections = diabetix.Collections || {};
 
     diabetix.Collections.Foods = Backbone.Collection.extend({
 
-    	initialize: function(options) {
-    		this.searchQuery = "";
+    	initialize: function(query) {
+
+    		this.searchQuery = query || "";
     		diabetix.Evt.bind("search:query", this.update, this);
     		
+            this.update(this.searchQuery);
     	},
         
         model: diabetix.Models.Food,
