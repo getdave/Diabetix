@@ -24,7 +24,7 @@ diabetix.Views = diabetix.Views || {};
         		this.$el.append(mealView.render().el);
         	},this);
 
-            $('#results').html(this.el);
+            $('#content-listing').html(this.el);
     		return this;
         }
     });
