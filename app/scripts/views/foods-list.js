@@ -10,7 +10,7 @@ diabetix.Views = diabetix.Views || {};
 
         initialize:function () {
             this.collection.bind("reset", this.render, this);
-            diabetix.Evt.bind("search:query", this.updateUrl, this);
+            //diabetix.Evt.bind("search:query", this.updateUrl, this);
         },
 
         tagName: 'ul',
@@ -30,7 +30,7 @@ diabetix.Views = diabetix.Views || {};
         },
 
         updateUrl: function(query) {
-            diabetix.foodsRouter.navigate("search/" + query + "/", {trigger: false});
+            
         }
 
     });

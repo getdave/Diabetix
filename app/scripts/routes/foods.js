@@ -6,18 +6,25 @@ diabetix.Routers = diabetix.Routers || {};
     'use strict';
 
     diabetix.Routers.FoodsRouter = Backbone.Router.extend({
-    	routes:{
-	        "": 			"index",
-	       	"search/:query": 	"search",
+    	routes: {
+	       	"search/:query" : "searchFoods",
+	        "": 				"index",
+	        "*other"    : "defaultRoute"
 	    },
 	 
 	    initialize:function () {
+	    	console.log("ROUTER RUNNING");
 	        //$('#header').html(new HeaderView().render().el);
 	        
 	    },
 
 	    index: function() {
+	    	diabetix.searchView = new diabetix.Views.SearchView();
+	    	
+	    },
 
+	    searchFoods: function(query) {
+	    	console.log("SEARCH ROUTE running");
 	    	diabetix.searchView = new diabetix.Views.SearchView();
 
 	    	// Model: Individual Food
@@ -34,12 +41,9 @@ diabetix.Routers = diabetix.Routers || {};
 	        diabetix.foods.update();
 	    },
 
-	    search: function(query) {
-	    	console.log("Searching for " + query);
-	    },
-
-	    foodDetail: function(id) {
-	    
+	    defaultRoute: function(other) {
+	    	console.log("Default fallback route. You attempted to reach " + other);
+	    	//Backbone.history.start
 	    }
     });
 

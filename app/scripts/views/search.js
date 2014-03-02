@@ -10,8 +10,7 @@ diabetix.Views = diabetix.Views || {};
         template: JST['app/scripts/templates/search.ejs'],
 
         events: {
-			"submit": "parseQuery",
-			"click #resetbutton": "clearSearch"
+			"submit": "parseQuery"
 		},
 
         initialize: function() {
@@ -33,7 +32,8 @@ diabetix.Views = diabetix.Views || {};
         parseQuery: function(ev) {
         	ev.preventDefault();
         	var query = this.$input.val();
-        	diabetix.Evt.trigger("search:query", query);
+        	//diabetix.Evt.trigger("search:query", query);
+            diabetix.foodsRouter.navigate("search/" + query + "/", {trigger: true});
         },
 
     });
