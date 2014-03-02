@@ -18,10 +18,13 @@ diabetix.Views = diabetix.Views || {};
         render: function() {
             this.$el.html('');
         	this.collection.each(function(meal) {
-        		console.log(meal);
+        		var mealView = new diabetix.Views.MealListItemView({
+        			model: meal
+        		});
+        		this.$el.append(mealView.render().el);
         	},this);
 
-            //$('#results').html(this.el);
+            $('#results').html(this.el);
     		return this;
         }
     });
