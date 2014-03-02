@@ -12,6 +12,7 @@ diabetix.Collections = diabetix.Collections || {};
         localStorage: new Backbone.LocalStorage("Diabetix-MealCollection")
 
 
+        
     });
 
 })();

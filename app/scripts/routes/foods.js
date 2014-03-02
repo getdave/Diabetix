@@ -8,6 +8,7 @@ diabetix.Routers = diabetix.Routers || {};
     diabetix.Routers.FoodsRouter = Backbone.Router.extend({
     	routes: {
 	       	"search/:query" : "search",
+	       	"meals/new"		: "mealsAdd",
 	       	"meals"			: "mealsList",
 	        ""				: "index",
 	        "*other"    	: "defaultRoute"
@@ -41,8 +42,6 @@ diabetix.Routers = diabetix.Routers || {};
 
 
 	    mealsList: function(id) {
-	    	console.log("Meal listing page");
-
 	    	// Model: a Meal
 	    	diabetix.meal = new diabetix.Models.MealModel();
 
@@ -57,10 +56,9 @@ diabetix.Routers = diabetix.Routers || {};
 	        diabetix.mealListView = new diabetix.Views.MealsListView({
 	            collection: diabetix.meals
 	        });
+	    },
 
-	        
-
-
+	    mealsAdd: function() {
 
 	    },
 
