@@ -11,7 +11,7 @@ window.diabetix = {
         'use strict';
         _.extend(diabetix.Evt, Backbone.Events);
         diabetix.foodsRouter = new diabetix.Routers.FoodsRouter();
-        Backbone.history.start();
+        Backbone.history.start({pushState: false});
     }
 };
 

@@ -6,40 +6,42 @@ diabetix.Routers = diabetix.Routers || {};
     'use strict';
 
     diabetix.Routers.FoodsRouter = Backbone.Router.extend({
-    	routes:{
-	        "": 			"index",
-	       	"search/:query": 	"search",
+    	routes: {
+	       	"search/:query" : "search",
+	        ""				: "index",
+	        "*other"    	: "defaultRoute"
 	    },
-	 
+
 	    initialize:function () {
-	        //$('#header').html(new HeaderView().render().el);
-	        
+
 	    },
 
 	    index: function() {
-
 	    	diabetix.searchView = new diabetix.Views.SearchView();
+
+	    },
+
+	    search: function(query) {
+	    	if (!diabetix.searchView) {
+	    		diabetix.searchView = new diabetix.Views.SearchView();
+	    	}
 
 	    	// Model: Individual Food
 	    	diabetix.food = new diabetix.Models.Food();
 
 	    	// Colleciton: List of Foods
-	        diabetix.foods = new diabetix.Collections.Foods();
-	      
+	        diabetix.foods = new diabetix.Collections.Foods(query);
+
 	        // View: List of Foods
 	        diabetix.foodListView = new diabetix.Views.FoodsListView({
 	            collection: diabetix.foods
 	        });
 
-	        diabetix.foods.update();
+
 	    },
 
-	    search: function(query) {
-	    	console.log("Searching for " + query);
-	    },
-
-	    foodDetail: function(id) {
-	    
+	    defaultRoute: function(other) {
+	    	console.log("Default fallback route. You attempted to reach " + other);
 	    }
     });
 
