@@ -8,8 +8,8 @@ diabetix.Routers = diabetix.Routers || {};
     diabetix.Routers.FoodsRouter = Backbone.Router.extend({
     	routes: {
 	       	"search/:query" : "search",
-	        "": 				"index",
-	        "*other"    : "defaultRoute"
+	        ""				: "index",
+	        "*other"    	: "defaultRoute"
 	    },
 
 	    initialize:function () {
@@ -22,7 +22,9 @@ diabetix.Routers = diabetix.Routers || {};
 	    },
 
 	    search: function(query) {
-	    	diabetix.searchView = new diabetix.Views.SearchView();
+	    	if (!diabetix.searchView) {
+	    		diabetix.searchView = new diabetix.Views.SearchView();
+	    	}
 
 	    	// Model: Individual Food
 	    	diabetix.food = new diabetix.Models.Food();
@@ -35,7 +37,7 @@ diabetix.Routers = diabetix.Routers || {};
 	            collection: diabetix.foods
 	        });
 
-	        //diabetix.foods.update();
+
 	    },
 
 	    defaultRoute: function(other) {

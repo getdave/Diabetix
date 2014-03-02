@@ -10,7 +10,6 @@ diabetix.Views = diabetix.Views || {};
 
         initialize:function () {
             this.collection.bind("reset", this.render, this);
-            //diabetix.Evt.bind("search:query", this.updateUrl, this);
         },
 
         tagName: 'ul',
@@ -27,12 +26,7 @@ diabetix.Views = diabetix.Views || {};
 
             $('#results').html(this.el);
     		return this;
-        },
-
-        updateUrl: function(query) {
-            
         }
-
     });
 
 })();

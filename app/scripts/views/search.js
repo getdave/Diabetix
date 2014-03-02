@@ -10,7 +10,7 @@ diabetix.Views = diabetix.Views || {};
         template: JST['app/scripts/templates/search.ejs'],
 
         events: {
-			"submit": "parseQuery"
+			"submit": "processQuery"
 		},
 
         initialize: function() {
@@ -23,17 +23,26 @@ diabetix.Views = diabetix.Views || {};
 
         },
 
-        render: function() {
+        render: function(query) {
+
         	this.$el.html( this.template() );
+
+        
+
         	$('.bar-header-secondary').append(this.el);
 			return this;
         },
 
-        parseQuery: function(ev) {
-        	ev.preventDefault();
+        /**
+         * Process a search query and trigger app navigation
+         */
+        processQuery: function(e) {
+        	e.preventDefault();
         	var query = this.$input.val();
-        	//diabetix.Evt.trigger("search:query", query);
-            diabetix.foodsRouter.navigate("search/" + query + "/", {trigger: true});
+
+            // Navigate to the "search" route passing the search
+            // query as the :param in the route url
+            diabetix.foodsRouter.navigate("search/" + query, {trigger: true});
         },
 
     });
