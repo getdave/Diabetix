@@ -14,7 +14,7 @@ diabetix.Views = diabetix.Views || {};
 
 
         initialize: function() {
-    	
+    	    this.listenTo(this.model, 'destroy', this.remove);
     	},
 
 		render: function() {

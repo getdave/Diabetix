@@ -10,10 +10,13 @@ diabetix.Views = diabetix.Views || {};
         tagName: 'ul',
         className: 'table-view',
 
+        events: {
+            "click .delete": "remove"
+        },
+
         initialize:function () {
             this.collection.on("reset", this.render, this);
             this.collection.on("add", this.addOne, this);
-            this.collection.on("all", this.render, this);
 
             this.render();
         },
@@ -31,12 +34,21 @@ diabetix.Views = diabetix.Views || {};
                 model: meal
             });
 
-            this.$el.append(mealView.render().el);
+            this.$el.prepend(mealView.render().el);
         },
 
         addAll: function() {
             this.collection.each(this.addOne, this);
         },
+
+        remove: function(e) {
+            console.log(e);
+            var id = $(e.currentTarget).parent().data("meal-id");
+            this.collection.remove({
+                id: id
+            });
+
+        }
     });
 
 })();
