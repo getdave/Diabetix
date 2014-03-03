@@ -10,31 +10,34 @@ diabetix.Views = diabetix.Views || {};
     	el: ".bar-header-secondary",
         template: JST['app/scripts/templates/add-meal-form.ejs'],
         events: {
-			"submit": "formSubmit"
+			"submit #add-meal-form": "addMeal"
 		},
 
         initialize:function () {
-        	this.$input 	= this.$('#meal-name');
-        	console.log(this.$input);
             this.render();
+
+            //
+            this.$input     = $('#meal-name');
+
             return this;
         },
 
         render: function() {
-			this.$el.html(this.template());     
+			this.$el.html(this.template());
 		},
 
-		formSubmit: function(e) {
+		addMeal: function(e) {
 			e.preventDefault();
-        	var mealName = this.$input.val();
 
-        	
-        	this.collection.add({
-        		name: mealName
-        	});
+            var form                = $(e.currentTarget);
+            var field_mealName      = form.find('#meal-name');
 
-        	// Clear the form
-        	this.$input.val("");
+        	this.collection.create({
+                name: field_mealName.val()
+            });
+
+        	// Reset the form
+        	field_mealName.val("");
 		}
     });
 

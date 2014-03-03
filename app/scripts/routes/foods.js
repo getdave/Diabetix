@@ -46,13 +46,17 @@ diabetix.Routers = diabetix.Routers || {};
 	    	// Model: a Meal
 	    	diabetix.meal = new diabetix.Models.MealModel();
 
-	    	// Colleciton: the list of available Meals
-	        diabetix.meals = new diabetix.Collections.MealsCollection([
+	    	var boostrap = [
 				{ id: 2, name: "First Meal" },
 				{ id: 3, name: "Tasty Meal" },
 				{ id: 4, name: "Disgusting Meal" },
 				{ id: 5, name: "Bland Meal" },
-	        ]);
+	        ];
+
+	    	// Colleciton: the list of available Meals
+	        diabetix.meals = new diabetix.Collections.MealsCollection();
+
+	        diabetix.meals.fetch();
 
 	    	diabetix.addMealFormView = new diabetix.Views.AddMealFormView({
 	            collection: diabetix.meals
@@ -61,6 +65,8 @@ diabetix.Routers = diabetix.Routers || {};
 	        diabetix.mealListView = new diabetix.Views.MealsListView({
 	            collection: diabetix.meals
 	        });
+
+	       
 	    },
 
 	    

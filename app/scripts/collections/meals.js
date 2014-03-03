@@ -9,7 +9,8 @@ diabetix.Collections = diabetix.Collections || {};
 
         model: diabetix.Models.MealModel,
 
-        localStorage: new Backbone.LocalStorage("Diabetix-MealCollection")
+        localStorage: new Backbone.LocalStorage("Diabetix-MealCollection"),
+
 
 
         
