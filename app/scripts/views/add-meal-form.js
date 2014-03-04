@@ -33,6 +33,7 @@ diabetix.Views = diabetix.Views || {};
             var field_mealName      = form.find('#meal-name');
 
         	this.collection.create({
+                id: Math.floor(Math.random() * (2000000 + 1) + 0),
                 name: field_mealName.val()
             });
 
