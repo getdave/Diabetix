@@ -10,11 +10,12 @@ diabetix.Views = diabetix.Views || {};
         tagName: 'ul',
         className: 'table-view',
 
-       
+
 
         initialize:function () {
-            this.collection.on("reset", this.render, this);
-            this.collection.on("add", this.addOne, this);
+            this.listenTo(this.collection,"reset",this.render);
+            this.listenTo(this.collection,"add",this.addOne);
+
             this.render();
         },
 
