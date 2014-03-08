@@ -9,22 +9,28 @@ diabetix.Views = diabetix.Views || {};
 
 
         initialize:function () {
-            this.collection.bind("reset", this.render, this);
+            this.listenTo(this.collection,"reset",this.render);
         },
 
         tagName: 'ul',
         className: 'table-view',
 
         render: function() {
-            this.$el.html('');
+
+            var container = document.createDocumentFragment();
+
+            this.$el.empty();
+
         	this.collection.each(function(food) {
         		var foodView = new diabetix.Views.FoodView({
         			model: food
         		});
-        		this.$el.append(foodView.render().el);
+        		container.appendChild(foodView.render().el);
         	},this);
 
-            $('#results').html(this.el);
+            this.$el.append(container);
+
+            $('#content-listing').empty().html(this.$el);
     		return this;
         }
     });

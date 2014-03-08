@@ -21,6 +21,7 @@
     <body>
 
         <header class="bar bar-nav">
+            <a class="icon icon-left-nav pull-left"></a>
             <h1 class="title">Diabetix</h1>
         </header>
         
@@ -30,9 +31,12 @@
         </div>
 
         <div class="content">
-            <p class="content-padded">Diabetix is a work in progress demo app to help Diabetics count carbohydrates in common food types.</p>
+            <div id="content-info">
+                <p class="content-padded">Diabetix is a work in progress demo app to help Diabetics count carbohydrates in common food types.</p>
+            </div>
+            
 
-            <div id="results" class="card"></div>
+            <div id="content-listing" class="card"></div>
         </div>
 
         <!--[if lt IE 7]>
@@ -51,6 +55,9 @@
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/backbone/backbone.js"></script>
+         
+        <script src="bower_components/backbone-relational/backbone-relational.js"></script>
+        <script src="bower_components/backbone.localStorage/backbone.localStorage.js"></script>
         <script src="bower_components/ratchet/dist/ratchet.js"></script>
         <!-- endbuild -->
 
@@ -64,6 +71,13 @@
         <script src="scripts/views/foods-list.js"></script>
         <script src="scripts/routes/foods.js"></script>
         <script src="scripts/views/search.js"></script>
+        <script src="scripts/models/portion.js"></script>
+        <script src="scripts/models/meal.js"></script>
+        <script src="scripts/collections/portions.js"></script>
+        <script src="scripts/collections/meals.js"></script>
+        <script src="scripts/views/meals-list.js"></script>
+        <script src="scripts/views/meal-list-item.js"></script>
+        <script src="scripts/views/add-meal-form.js"></script>
         <!-- endbuild -->
 </body>
 </html>

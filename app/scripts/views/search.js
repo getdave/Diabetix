@@ -24,12 +24,8 @@ diabetix.Views = diabetix.Views || {};
         },
 
         render: function(query) {
-
         	this.$el.html( this.template() );
-
-        
-
-        	$('.bar-header-secondary').append(this.el);
+        	$('.bar-header-secondary').empty().append(this.el);
 			return this;
         },
 
