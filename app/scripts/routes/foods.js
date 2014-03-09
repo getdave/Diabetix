@@ -14,12 +14,16 @@ diabetix.Routers = diabetix.Routers || {};
 	    },
 
 	    initialize:function () {
-
+	    	
 	    },
 
 	    index: function() {
-	    	diabetix.searchView = new diabetix.Views.SearchView();
 
+
+	    	var headerView = new diabetix.Views.HeaderView();
+    		diabetix.appHeader.show(headerView);
+
+	    	diabetix.searchView = new diabetix.Views.SearchView();
 	    },
 
 	    search: function(query) {
