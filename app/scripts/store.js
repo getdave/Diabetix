@@ -1,0 +1,1 @@
+Diabetix.ApplicationAdapter = DS.FixtureAdapter;
