@@ -1,5 +1,5 @@
 Diabetix.FoodsRoute = Ember.Route.extend({
-    model: function () {
-        return ['toast', 'jam', 'beans'];
-    }
+	model: function() {
+		return this.store.find('food');
+	}
 });
