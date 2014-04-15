@@ -2,9 +2,17 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+
+        <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <title>Yeoman Ember Starter Kit</title>
 
         <!-- build:css styles/main.css -->
+        <!-- Include the compiled Ratchet CSS -->
+        <link href="bower_components/ratchet/dist/css/ratchet.css" rel="stylesheet">
+
         <link rel="stylesheet" href="styles/normalize.css">
         <link rel="stylesheet" href="styles/style.css">
         <!-- endbuild -->
@@ -12,6 +20,7 @@
     <body>
         <!-- build:js(app) scripts/components.js -->
         <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/ratchet/dist/js/ratchet.js"></script>
         <script src="bower_components/handlebars/handlebars.runtime.js"></script>
         <script src="@@ember"></script>
         <script src="@@ember_data"></script>
