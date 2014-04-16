@@ -1,11 +1,12 @@
 Diabetix.FoodsSearchRoute = Ember.Route.extend({
 	model: function(params) {
-		console.log(params);
-		this.controllerFor("foods").set('searchQuery', params.query);
-		return this.store.find('food');
+		var query = decodeURIComponent(params.query);
+		this.controllerFor("foods").set('searchQuery', query);
+		return Diabetix.Food.queryFoods(query);
 	},
 	serialize: function(query) {
-		return {query: query};
+//		return {query: query};
+		return {query: encodeURIComponent(query)};
 	},
 
 
