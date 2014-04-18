@@ -35,7 +35,7 @@ Diabetix.Food.reopenClass({
         "appKey": "9ceaebe161080c356ff15eaf2be38533",
 
         "filters":{
-          "item_type":2
+          "item_type":3
         },
         "sort":{
           "field":"nf_total_carbohydrate",
