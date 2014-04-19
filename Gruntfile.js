@@ -235,20 +235,17 @@ module.exports = function (grunt) {
         },
         // Put files not handled in other tasks here
         copy: {
-            fonts: {
-                files: [
-                    { 
-                        expand: true,
-                        flatten: true,
-                        filter: 'isFile',
-                        cwd: '<%= yeoman.app %>/bower_components/',
-                        dest: '<%= yeoman.app %>/styles/fonts/',
-                        src: [ 
-                            'bootstrap-sass/dist/fonts/**', // Bootstrap
-                            'font-awesome/fonts/**' // Font-Awesome
-                        ]
-                    }
-                ]
+            ratchet_fonts: {
+                src: '<%= yeoman.app %>/bower_components/ratchet/dist/fonts/*',
+                dest: '<%= yeoman.app %>/fonts/',
+            },
+            ratchet_styles: {
+                src: '<%= yeoman.app %>/bower_components/ratchet/dist/css/ratchet.css',
+                dest: '<%= yeoman.app %>/styles/ratchet.css',
+            },
+            ratchet_scripts: {
+                src: '<%= yeoman.app %>/bower_components/ratchet/dist/js/ratchet.js',
+                dest: '<%= yeoman.app %>/scripts/ratchet.js',
             },
             dist: {
                 files: [
@@ -261,7 +258,8 @@ module.exports = function (grunt) {
                             '*.{ico,txt}',
                             '.htaccess',
                             'images/{,*/}*.{webp,gif}',
-                            'styles/fonts/*'
+                            'styles/fonts/*',
+                            'fonts/*'
                         ]
                     }
                 ]
