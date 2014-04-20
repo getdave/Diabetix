@@ -5,3 +5,7 @@ Diabetix.ApplicationRoute = Ember.Route.extend({
        
     }
 });
+
+
+
+

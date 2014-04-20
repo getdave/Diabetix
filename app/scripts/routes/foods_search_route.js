@@ -5,9 +5,6 @@ Diabetix.FoodsSearchRoute = Ember.Route.extend({
 		return Diabetix.Food.queryFoods(query);
 	},
 	serialize: function(query) {
-//		return {query: query};
 		return {query: encodeURIComponent(query)};
 	},
-
-
 });

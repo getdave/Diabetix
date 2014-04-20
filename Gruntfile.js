@@ -243,9 +243,9 @@ module.exports = function (grunt) {
                 src: '<%= yeoman.app %>/bower_components/ratchet/dist/css/ratchet.css',
                 dest: '<%= yeoman.app %>/styles/ratchet.css',
             },
-            ratchet_scripts: {
+            ratchet_js: {
                 src: '<%= yeoman.app %>/bower_components/ratchet/dist/js/ratchet.js',
-                dest: '<%= yeoman.app %>/scripts/ratchet.js',
+                dest: '<%= yeoman.app %>/js/ratchet.js',
             },
             dist: {
                 files: [
@@ -320,7 +320,9 @@ module.exports = function (grunt) {
             'replace:app',
             'concurrent:server',
             'neuter:app',
-            'copy:fonts',
+            'copy:ratchet_fonts',
+            'copy:ratchet_styles',
+            'copy:ratchet_js',
             'connect:livereload',
             'open',
             'watch'
