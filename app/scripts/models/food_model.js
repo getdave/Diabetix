@@ -34,5 +34,24 @@ Diabetix.Food.reopenClass({
       return results;
 
     });
+  },
+  getFood: function(food_id){
+    // use regular AJAX / Promises calls
+    return $.ajax({
+      type: "GET",
+      url: "https://api.nutritionix.com/v1_1/item/",
+      data: {
+        "appId": "207894da",
+        "appKey": "9ceaebe161080c356ff15eaf2be38533",
+        "id": food_id,
+        //"fields":["item_id","item_name","item_description","nf_sodium","item_type"],
+        "fields" : "item_id,item_name,item_description,nf_total_carbohydrate,brand_name,nf_servings_per_container,nf_serving_size_qty,nf_serving_size_unit,nf_serving_weight_grams"
+      },
+      //dataType: "json"
+    }).then(function(response) {
+      console.log(response);
+      return Diabetix.Food.create(response)
+
+    });
   }
 });

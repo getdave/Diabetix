@@ -6,3 +6,8 @@ html, body {
 .muted {
 	color: #999;
 }
+
+.app-loading {
+	display: block;
+	margin: 10px auto;
+}
