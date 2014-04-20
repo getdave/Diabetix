@@ -1,8 +1,6 @@
 var TitleView = Ember.View.extend({
-  tagName: 'h1',
-  classNames: ['title'],
-  /* classNameBindings: ['isDefaultTitle'],
-    isDefaultTitle: true */
+	tagName: 'h1',
+	classNames: ['title'],
 });
 
 Diabetix.TitleView = TitleView.create({

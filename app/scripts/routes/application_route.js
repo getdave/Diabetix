@@ -2,9 +2,10 @@ Diabetix.ApplicationRoute = Ember.Route.extend({
     model: function () {
 
     },
-    activate: function() {
+
+	afterModel: function(model, transition) {
 		Diabetix.TitleView.set('title', "Diabetix");
-	},
+	}
 });
 
 

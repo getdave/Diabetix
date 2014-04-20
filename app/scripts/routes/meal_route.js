@@ -1,7 +1,6 @@
 Diabetix.MealRoute = Ember.Route.extend({
-
-	activate: function() {
-		console.log(this.get("title"));
-		Diabetix.TitleView.set('title', "Meal");
-	},
+	afterModel: function(model, transition) {
+		var title = model.get("title");
+		Diabetix.TitleView.set('title', title);
+	}
 });
