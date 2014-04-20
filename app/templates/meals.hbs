@@ -1,11 +1,11 @@
 <ul class="table-view">
 {{#each}}
 	<li class="table-view-cell">
-		<a class="navigate-right">
+		{{#link-to "meal" this class="navigate-right"}}
 
 			{{title}}
 			<p>{{description}}</p>
-		</a>
+		{{/link-to}}
 	</li>
 {{/each}}
 </ul>

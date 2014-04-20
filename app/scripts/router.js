@@ -4,4 +4,6 @@ Diabetix.Router.map(function () {
   });
 
   this.resource('meals');
+
+  this.resource('meal', { path: '/meals/:meal_id'});
 });
