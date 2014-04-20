@@ -1,0 +1,20 @@
+<ul class="table-view">
+{{#each}}
+	<li {{bind-attr id="fields.item_id"}} class="table-view-cell">
+		<a class="navigate-right">
+			<span class="badge">CHO {{fields.nf_total_carbohydrate}}g</span>
+			{{fields.item_name}} 
+			
+			<p>
+				{{#if fields.brand_name}}
+					{{fields.brand_name}}
+					 | 
+				{{/if}}
+
+				Typical serving: {{fields.nf_serving_size_qty}} {{fields.nf_serving_size_unit}}
+			</p>
+		</a>
+	</li>
+{{/each}}
+</ul>
+

@@ -1,0 +1,33 @@
+<header id="app-header" class="bar bar-nav">
+    {{view Diabetix.TitleView}}
+</header>
+<!-- Block button in standard bar fixed below top bar 
+<div id="app-secondary-header" class="bar bar-standard bar-header-secondary">
+</div>-->
+
+<div id="app-main" class="content">
+    {{outlet}}
+</div>
+
+<nav class="bar bar-tab">
+    {{#link-to "index" class="tab-item"}}
+        <span class="icon icon-home"></span>
+        <span class="tab-label">Home</span>
+    {{/link-to}}
+
+    {{#link-to "foods" class="tab-item"}}
+        <span class="icon icon-search"></span>
+        <span class="tab-label">Foods</span>
+    {{/link-to}}
+
+    {{#link-to "meals" class="tab-item"}}
+        <span class="icon icon-star"></span>
+        <span class="tab-label">Meals</span>
+    {{/link-to}}
+    <a class="tab-item" href="#">
+        <span class="icon icon-gear"></span>
+        <span class="tab-label">Settings</span>
+    </a>
+</nav>
+
+
