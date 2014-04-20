@@ -1,16 +1,13 @@
 <header id="app-header" class="bar bar-nav">
     <h1 class="title">Diabetix</h1>
 </header>
-
 <!-- Block button in standard bar fixed below top bar 
 <div id="app-secondary-header" class="bar bar-standard bar-header-secondary">
-
 </div>-->
 
 <div id="app-main" class="content">
     {{outlet}}
 </div>
-
 
 <nav class="bar bar-tab">
     {{#link-to "index" class="tab-item"}}
@@ -22,10 +19,11 @@
         <span class="icon icon-search"></span>
         <span class="tab-label">Foods</span>
     {{/link-to}}
-    <a class="tab-item" href="#">
-        <span class="icon icon-star-filled"></span>
+
+    {{#link-to "meals" class="tab-item"}}
+        <span class="icon icon-star"></span>
         <span class="tab-label">Meals</span>
-    </a>
+    {{/link-to}}
     <a class="tab-item" href="#">
         <span class="icon icon-gear"></span>
         <span class="tab-label">Settings</span>

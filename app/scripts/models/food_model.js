@@ -1,27 +1,3 @@
-/* Diabetix.Food = DS.Model.extend({
-  title: DS.attr('string'),
-  CHO: DS.attr('number')
-});
-
-
-Diabetix.Food.FIXTURES = [
- {
-   id: 1,
-   title: 'Bread',
-   CHO: 16
- },
- {
-   id: 2,
-   title: 'Corn',
-   CHO: 32
- },
-  {
-   id: 3,
-   title: 'Cheese',
-   CHO: 99
- },
-]; */
-
 Diabetix.Food = Ember.Object.extend({});
 
 Diabetix.Food.reopenClass({
@@ -60,16 +36,3 @@ Diabetix.Food.reopenClass({
     });
   }
 });
-
-/* https://api.nutritionix.com/v1_1/search/" + this.searchQuery + "/?" + $.param(_.defaults(this.params, this.defaultParams));
-
-$.ajax({
-  type: "GET",
-  url: "https://api.nutritionix.com/v1_1/" + this.searchQuery + "/",
-  data: {
-    "appId": "207894da",
-    "appKey": "9ceaebe161080c356ff15eaf2be38533",
-    "fields" : "*"//"item_id,item_name,item_description,nf_total_carbohydrate"
-  },
-  dataType: "json"
-}); */
