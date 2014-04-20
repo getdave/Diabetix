@@ -1,4 +1,4 @@
-Diabetix.MealsRoute = Ember.Route.extend({
+Diabetix.MealsIndexRoute = Ember.Route.extend({
 	model: function() {
 		return this.store.find('meal');
 	},

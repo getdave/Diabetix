@@ -1,0 +1,12 @@
+<ul class="table-view">
+{{#each}}
+	<li class="table-view-cell">
+		{{#link-to "meal" this class="navigate-right"}}
+
+			{{title}}
+			<p>{{description}}</p>
+		{{/link-to}}
+	</li>
+{{/each}}
+</ul>
+
