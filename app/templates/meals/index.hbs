@@ -2,7 +2,9 @@
 {{#each itemController="meal"}}
 	<li class="table-view-cell">
 		{{#link-to "meal" this class="navigate-right"}}
-			<span class="badge">{{totalMealPortions}}</span>
+			{{#if portions}}
+				<span class="badge">{{portionsCount}}</span>
+			{{/if}}
 			{{title}}
 			<p>{{description}}</p>
 		{{/link-to}}

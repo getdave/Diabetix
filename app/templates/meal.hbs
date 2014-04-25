@@ -17,6 +17,15 @@
 		{{/each}}
 	  </ul>
 	</div>
+	{{else}}
+	<div class="content-padded">
+		<h3>There are currently no Portions in this Meal</h3>
+		{{#link-to "foods" class="btn btn-positive btn-block"}}
+			<span class="icon icon-search"></span>
+			Add Portions
+		{{/link-to}}
+
+	</div>
 
 	{{/if}}
 
