@@ -6,7 +6,16 @@ Diabetix.Meal = DS.Model.extend({
   portions: DS.hasMany('portion', {async: true }),
   portionsCount: function() {
       return this.get('portions.length');
-  }.property('portions.@each')
+  }.property('portions.@each'),
+  totalCHO: function() {
+    var portions = this.get("portions");
+    var ret = 0;
+    
+    portions.forEach(function(portion){
+        ret += portion.get("CHO");
+    });
+    return ret;
+  }.property("portions.@each.CHO")
 });
 
 

@@ -5,7 +5,7 @@
 </div>	
 	{{#if portions}}
 	<div class="content-padded">
-		<h3>{{portionsCount}} Portions in this Meal:</h3>
+		<h3>Portions:</h3>
 	</div>
 	<div class="card">
 	  <ul class="table-view">
@@ -17,6 +17,11 @@
 		{{/each}}
 	  </ul>
 	</div>
+	
+	<div class="content-padded">
+		<h5>Total Meal CHO: {{totalCHO}}g</h5>
+	</div>
+
 	{{else}}
 	<div class="content-padded">
 		<h3>There are currently no Portions in this Meal</h3>
@@ -24,9 +29,7 @@
 			<span class="icon icon-search"></span>
 			Add Portions
 		{{/link-to}}
-
 	</div>
-
 	{{/if}}
 
 
