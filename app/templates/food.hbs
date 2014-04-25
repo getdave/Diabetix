@@ -1,9 +1,24 @@
-<span class="badge">CHO {{nf_total_carbohydrate}}g</span>
+<div class="content-padded">
+	
 
-<p>
-	{{#if brand_name}}
-		{{brand_name}}
-	{{/if}}
 
-	Typical serving: {{nf_serving_size_qty}} {{nf_serving_size_unit}}
-</p>
+	<h2 class="h4">Calculate Carbs</h2>
+	<form>
+		<label for="portionWeight">Portion weight:</label>
+		{{input type="number" name="portionWeight" value=portionWeight placeholder="Enter Portion weight in grams (g)..."}}
+		{{#if portionCHO}}
+		<p>Your Portion contains <strong>{{portionCHO}}g</strong> of Carbohydrate</p>
+		{{/if}}
+		<button class="btn btn-positive btn-block">Add Portion to Meal</button>
+	</form>
+
+	
+</div>
+
+
+<div class="content-padded">
+
+	<h2 class="h4">About this Food</h2>
+	<p><strong>CHO/100g:</strong> {{nf_total_carbohydrate}}g</p>
+	<p><strong>Typical serving: {{nf_serving_size_qty}} {{nf_serving_size_unit}}</strong></p>
+</div>
