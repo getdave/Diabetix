@@ -1,12 +1,14 @@
 <ul class="table-view">
-{{#each}}
+{{#each itemController="meal"}}
 	<li class="table-view-cell">
 		{{#link-to "meal" this class="navigate-right"}}
-
+			<span class="badge">{{totalMealPortions}}</span>
 			{{title}}
 			<p>{{description}}</p>
 		{{/link-to}}
 	</li>
 {{/each}}
 </ul>
+
+
 
