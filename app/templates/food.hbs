@@ -12,8 +12,9 @@
 	{{#if portionCHO}}
 	<p>Your Portion contains <strong>{{portionCHO}}g</strong> of Carbohydrate</p>
 	
-	<form action="">
-		<button type="button" class="btn btn-positive btn-block">
+	<form {{action "addPortionToMeal"  on="submit"}}>
+		{{view Ember.Select selectionBinding="selectedMeal" content=allMeals optionValuePath="content.id" optionLabelPath="content.title" }}
+		<button type="submit" class="btn btn-positive btn-block">
 			<span class="icon icon-plus"></span>
 			Add Portion ({{portionCHO}}g) to Meal
 		</button>

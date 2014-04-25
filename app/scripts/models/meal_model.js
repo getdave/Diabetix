@@ -5,6 +5,9 @@ Diabetix.Meal = DS.Model.extend({
   description: DS.attr('string', {
       defaultValue: "No description provided."
   }),
+  createdAt: DS.attr('string', {
+      defaultValue: function() { return new Date(); }
+  }),
   portions: DS.hasMany('portion', {async: true }),
   portionsCount: function() {
       return this.get('portions.length');
@@ -19,6 +22,7 @@ Diabetix.Meal = DS.Model.extend({
     return ret;
   }.property("portions.@each.CHO")
 });
+
 
 
 
@@ -44,6 +48,6 @@ Diabetix.Meal.FIXTURES = [
   {
    id: 4,
    title: "Roast Dinner",
-   description: "The full works! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi eaque corporis vitae dolor fugiat maxime sint dicta laborum nulla ratione! Illo in similique itaque perferendis. Dolorem, labore necessitatibus tenetur quisquam!",
+   description: "The full works! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi eaque corporis vitae dolor fugiat maxime sint dicta laborum nulla ratione! Illo in similique itaque perferendis. Dolorem, labore necessitatibus tenetur quisquam!"
  },
 ];

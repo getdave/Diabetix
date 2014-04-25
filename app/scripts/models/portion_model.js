@@ -1,6 +1,9 @@
 Diabetix.Portion = DS.Model.extend({
-  foodName: DS.attr("text"),
+  foodName: DS.attr("string"),
   CHO: DS.attr("number"),
+  createdAt: DS.attr('string', {
+      defaultValue: function() { return new Date(); }
+  }),
   meal: DS.belongsTo('meal')
 });
 
