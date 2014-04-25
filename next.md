@@ -3,11 +3,11 @@
 ## Foods - ability to calculate CHO per Portion
 
 * Check that `nf_total_carbohydrate` field is CHO/100g
-* Add property on Controller which is "Portion Weight" (PW) - this will be populated by the user and is initially set to 100g
-* Add input of `type=number` which allows the user to set the PW (in grams)
-  * add `action` handler which `set`s the PW on the Controller
-* Add computed property "Portion CHO" on Food Controller which is: (Food's CHO per 100g)/100 * PW - this should be set to observe PW (via `property` so that when this is changed the "Portion CHO" value is recalculated)
-* Print value of "Portion CHO" to Food View
+* ~~Add property on Controller which is "Portion Weight" (PW) - this will be populated by the user and is initially set to 100g~~
+* ~~Add input of `type=number` which allows the user to set the PW (in grams)~~
+  * ~~add `action` handler which `set`s the PW on the Controller~~
+* ~~Add computed property "Portion CHO" on Food Controller which is: (Food's CHO per 100g)/100 * PW - this should be set to observe PW (via `property` so that when this is changed the "Portion CHO" value is recalculated)~~
+* ~~Print value of "Portion CHO" to Food View~~
 
 ## Meals - ability to add "Food Portions" to a Meal
 

@@ -1,18 +1,21 @@
 <div class="content-padded">
-	
+
 
 
 	<h2 class="h4">Calculate Carbs</h2>
-	<form>
-		<label for="portionWeight">Portion weight:</label>
-		{{input type="number" name="portionWeight" value=portionWeight placeholder="Enter Portion weight in grams (g)..."}}
-		{{#if portionCHO}}
-		<p>Your Portion contains <strong>{{portionCHO}}g</strong> of Carbohydrate</p>
-		{{/if}}
-		<button class="btn btn-positive btn-block">Add Portion to Meal</button>
-	</form>
-
 	
+	<label for="portionWeight">Portion weight:</label>
+	{{input type="number" name="portionWeight" value=portionWeight placeholder="Enter Portion weight in grams (g)..."}}
+
+	{{#if portionCHO}}
+	<p>Your Portion contains <strong>{{portionCHO}}g</strong> of Carbohydrate</p>
+	
+	<button type="button" class="btn btn-positive btn-block">
+		<span class="icon icon-plus"></span>
+		Add Portion ({{portionCHO}}g) to Meal
+	</button>
+	{{/if}}
+
 </div>
 
 
