@@ -2,7 +2,9 @@ Diabetix.Meal = DS.Model.extend({
   title: DS.attr('string', {
       defaultValue: "Untitled Meal"
   }),
-  description: DS.attr('string'),
+  description: DS.attr('string', {
+      defaultValue: "No description provided."
+  }),
   portions: DS.hasMany('portion', {async: true }),
   portionsCount: function() {
       return this.get('portions.length');

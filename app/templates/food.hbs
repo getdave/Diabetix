@@ -1,6 +1,8 @@
 <div class="content-padded">
 
-
+	{{#each meal in allMeals}}
+		{{meal.title}}
+	{{/each}}
 
 	<h2 class="h4">Calculate Carbs</h2>
 	
@@ -10,10 +12,12 @@
 	{{#if portionCHO}}
 	<p>Your Portion contains <strong>{{portionCHO}}g</strong> of Carbohydrate</p>
 	
-	<button type="button" class="btn btn-positive btn-block">
-		<span class="icon icon-plus"></span>
-		Add Portion ({{portionCHO}}g) to Meal
-	</button>
+	<form action="">
+		<button type="button" class="btn btn-positive btn-block">
+			<span class="icon icon-plus"></span>
+			Add Portion ({{portionCHO}}g) to Meal
+		</button>
+	</form>
 	{{/if}}
 
 </div>

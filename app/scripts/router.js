@@ -9,6 +9,8 @@ Diabetix.Router.map(function () {
   	this.resource('meal', { path: '/:meal_id'}, function() {
     	this.route('edit');
     });
+
+    this.route('new');
   });
 
   

@@ -49,7 +49,6 @@ Diabetix.Food.reopenClass({
       },
       //dataType: "json"
     }).then(function(response) {
-      console.log(response);
       return Diabetix.Food.create(response)
 
     });
