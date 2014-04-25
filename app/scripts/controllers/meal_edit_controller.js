@@ -12,6 +12,9 @@ Diabetix.MealEditController = Ember.ObjectController.extend({
 
 			meal.save().then(function() {
 				_this.transitionToRoute('meal', meal.get("id"));
+
+				// Update view title
+				Diabetix.TitleView.set('title', meal.get("title")); // force update here as Model hook is not triggered again (i think!)
 			}, function() {
 
 			});
