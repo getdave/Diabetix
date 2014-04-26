@@ -1,5 +1,8 @@
-Diabetix.ApplicationAdapter = DS.FixtureAdapter;
-
+//Diabetix.ApplicationAdapter = DS.FixtureAdapter;
+Diabetix.ApplicationSerializer = DS.LSSerializer.extend();
+Diabetix.ApplicationAdapter = DS.LSAdapter.extend({
+    namespace: 'LSDiabetix'
+});
 
 /**
  * Fix issue with relationship fields not being persisted on record save
@@ -9,8 +12,7 @@ DS.JSONSerializer.reopen({
     serializeHasMany : function(record, json, relationship) {
         var key = relationship.key;
 
-        var relationshipType = DS.RelationshipChange.determineRelationshipType(
-                record.constructor, relationship);
+        var relationshipType = DS.RelationshipChange.determineRelationshipType(record.constructor, relationship);
 
         if (relationshipType === 'manyToNone'
                 || relationshipType === 'manyToMany'
