@@ -8,7 +8,7 @@ Diabetix.ApplicationAdapter = DS.LSAdapter.extend({
  * Fix issue with relationship fields not being persisted on record save
  * see http://stackoverflow.com/questions/19093078/ember-data-saving-record-loses-has-many-relationships
  */
-DS.JSONSerializer.reopen({
+/* DS.JSONSerializer.reopen({
     serializeHasMany : function(record, json, relationship) {
         var key = relationship.key;
 
@@ -22,4 +22,4 @@ DS.JSONSerializer.reopen({
             // relationships
         }
     }
-});
+}); */
