@@ -1,0 +1,36 @@
+<div class="content-padded">
+<p>{{description}}</p>
+{{#link-to "meal.edit" this }}Edit{{/link-to}}
+
+</div>	
+{{#if portions}}
+<div class="content-padded">
+	<h3>Portions:</h3>
+</div>
+<div class="card">
+  <ul class="table-view">
+    {{#each portions}}
+	<li class="table-view-cell">
+		<span class="badge">{{CHO}}g</span>
+		{{foodName}}			
+	</li>
+	{{/each}}
+  </ul>
+</div>
+
+<div class="content-padded">
+	<h5>Total Meal CHO: {{totalCHO}}g</h5>
+</div>
+
+{{else}}
+<div class="content-padded">
+	<h3>There are currently no Portions in this Meal</h3>
+	{{#link-to "foods" class="btn btn-positive btn-block"}}
+		<span class="icon icon-search"></span>
+		Add Portions
+	{{/link-to}}
+</div>
+{{/if}}
+
+
+

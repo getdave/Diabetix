@@ -6,7 +6,11 @@ Diabetix.Router.map(function () {
   this.resource('food', { path: '/food/:food_id' });
 
   this.resource('meals',function() {
-  	this.resource('meal', { path: '/:meal_id'});
+  	this.resource('meal', { path: '/:meal_id'}, function() {
+    	this.route('edit');
+    });
+
+    this.route('new');
   });
 
   
