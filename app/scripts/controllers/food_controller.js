@@ -32,9 +32,10 @@ Diabetix.FoodController = Ember.ObjectController.extend({
 
 
 			portion.save().then(function() {
-				_this.transitionToRoute('meal', meal);
 				meal.get("portions").pushObject(portion);
-				meal.save(); // requires save of meal
+				meal.save().then(function() {
+					_this.transitionToRoute('meal', meal);
+				}); // requires save of meal
 			}, function() {
 
 			});
