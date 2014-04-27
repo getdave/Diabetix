@@ -4,5 +4,17 @@ Diabetix.MealsIndexRoute = Ember.Route.extend({
 	},
 	afterModel: function(model, transition) {
 		Diabetix.TitleView.set('title', "Meals");
+	},
+	renderTemplate: function(){
+        this.render();
+        this.render("new-button", {
+        	outlet: "header-right",
+        	into: 'application'
+        });
+    },
+    actions: {
+		createNew: function() {
+			this.transitionTo('meals.new');
+		}
 	}
 });

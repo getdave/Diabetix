@@ -12,10 +12,8 @@ Diabetix.ApplicationRoute = Ember.Route.extend({
 
 		var mealsController = this.controllerFor("meals");
 
-
 		controller.get('store').find('meal').then(function(data){
 			mealsController.set('content',data);
-			//console.log(mealsController.get("content").objectAt(0).get("title"));
 		});
 
 	}
