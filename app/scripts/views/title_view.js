@@ -1,8 +1,5 @@
-var TitleView = Ember.View.extend({
+Diabetix.TitleView = Ember.View.create({
 	tagName: 'h1',
 	classNames: ['title'],
-});
-
-Diabetix.TitleView = TitleView.create({
 	templateName: 'title'
 });

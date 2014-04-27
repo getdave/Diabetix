@@ -8,11 +8,11 @@ Diabetix.FoodController = Ember.ObjectController.extend({
   	portionCHO: function() {
 
 
-
   		var totalCarbs = this.get("nf_total_carbohydrate");
+  		var servingWeight = this.get("nf_serving_weight_grams");
   		var pw = this.get('portionWeight');
 
-  		return Math.round( (totalCarbs/100) * pw );
+  		return Math.round( (totalCarbs/servingWeight) * pw );
   	}.property('portionWeight'),
   	selectedMeal: null,
   	actions: {

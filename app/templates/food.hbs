@@ -1,9 +1,5 @@
 <div class="content-padded">
 
-	{{#each meal in allMeals}}
-		{{meal.title}}
-	{{/each}}
-
 	<h2 class="h4">Calculate Carbs</h2>
 	
 	<label for="portionWeight">Portion weight:</label>
@@ -24,9 +20,11 @@
 </div>
 
 
-<div class="content-padded">
+<div class="card">
+  <ul class="table-view">
+    <li class="table-view-cell"><strong>Typical serving:</strong> {{nf_serving_size_qty}} {{nf_serving_size_unit}}</li>
+    <li class="table-view-cell"><strong>Serving weight:</strong> {{nf_serving_weight_grams}}g</li>
+    <li class="table-view-cell"><strong>Average CHO/serving:</strong> {{nf_total_carbohydrate}}g</li>
 
-	<h2 class="h4">About this Food</h2>
-	<p><strong>CHO/100g:</strong> {{nf_total_carbohydrate}}g</p>
-	<p><strong>Typical serving: {{nf_serving_size_qty}} {{nf_serving_size_unit}}</strong></p>
+  </ul>
 </div>
