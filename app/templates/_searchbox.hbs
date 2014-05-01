@@ -1,3 +1,6 @@
 {{#view Diabetix.HeaderSecondaryView}}
-{{input type="search" autocomplete="off" id="food-search" placeholder="Search for a Food..." value=searchQuery action="queryFoods"}}
+<form {{action queryFoods on="submit"}}>
+{{input type="search" autocomplete="off" id="food-search" placeholder="Search for a Food..." value=searchQuery}}
+</form>
 {{/view}}
+
