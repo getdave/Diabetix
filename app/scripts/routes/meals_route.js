@@ -11,6 +11,7 @@ Diabetix.MealsIndexRoute = Ember.Route.extend({
         	outlet: "header-right",
         	into: 'application'
         });
+        
     },
     actions: {
 		createNew: function() {
