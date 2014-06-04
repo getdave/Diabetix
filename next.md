@@ -48,7 +48,9 @@
   * create action handlers on Component Controller to handle a `goBack` action
   * Implement action handler for `goBack` on Routes as required. Should use transition.
   * Other info at [here](http://stackoverflow.com/questions/20228464/implementing-a-conditional-back-button-in-ember-js) and [here](http://emberjs.com/api/classes/Ember.HistoryLocation.html)
-
+* Title lenght
+  * ensure title is only allowed to be a maxiumum length
+  * use a Handlebars Helper - http://stackoverflow.com/questions/10138518/handlebars-substring && http://emberjs.com/guides/templates/writing-helpers/
 
 
 ## Search UI
