@@ -6,37 +6,35 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  // Foods
+  this.resource('foods', function() {
+      
+      // Search Query
+      this.route('search.query', {
+          path: '/search/:query'
+      });
+  });
 
-    // Foods
-    this.resource('foods', function() {
-        
-        // Search
-        this.route('search');
+  // Food (Single)
+  this.resource('food', {
+      path: '/food/:food_id'
+  });
 
-        // Search Query
-        this.route('search.query', {
-            path: '/search/:query'
-        });
-    });
+  // Meals
+  this.resource('meals', function() {
 
-    // Food (Single)
-    this.resource('food', {
-        path: '/food/:food_id'
-    });
+      // Meal (Single)
+      this.resource('meal', {
+          path: '/:meal_id'
+      }, function() {
+          this.route('edit');
+      });
 
-    // Meals
-    this.resource('meals', function() {
-
-        // Meal (Single)
-        this.resource('meal', {
-            path: '/:meal_id'
-        }, function() {
-            this.route('edit');
-        });
-
-        // New Meal
-        this.route('new');
-    });
+      // New Meal
+      this.route('new');
+  });
+  this.route("foods-search-query");
+  this.route("foods-search");
 });
 
 export

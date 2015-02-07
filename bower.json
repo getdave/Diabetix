@@ -14,5 +14,8 @@
     "ember-qunit-notifications": "0.0.5",
     "qunit": "~1.17.1",
     "ratchet": "~2.0.2"
+  },
+  "devDependencies": {
+    "jquery-mockjax": "~1.6.1"
   }
 }

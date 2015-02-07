@@ -1,6 +1,7 @@
 /* global require, module */
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var isProduction = EmberApp.env() === 'production';
 
 var app = new EmberApp();
 
@@ -16,10 +17,18 @@ var app = new EmberApp();
 // modules that you would like to import into your application
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
-// 
 
 
 app.import('bower_components/ratchet/dist/css/ratchet.css');
+
+
+
+/**
+ * TEST ASSETS
+ */
+if ( !isProduction ) {
+	app.import( app.bowerDirectory + '/jquery-mockjax/jquery.mockjax.js', { type: 'test' } );
+}
 
 
 module.exports = app.toTree();
