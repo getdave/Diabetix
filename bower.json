@@ -13,7 +13,8 @@
     "ember-qunit": "0.1.8",
     "ember-qunit-notifications": "0.0.5",
     "qunit": "~1.17.1",
-    "ratchet": "~2.0.2"
+    "ratchet": "~2.0.2",
+    "sinon": "http://sinonjs.org/releases/sinon-1.12.2.js"
   },
   "devDependencies": {
     "jquery-mockjax": "~1.6.1"

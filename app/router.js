@@ -8,11 +8,7 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   // Foods
   this.resource('foods', function() {
-      
-      // Search Query
-      this.route('search.query', {
-          path: '/search/:query'
-      });
+    this.route('search', { path: '/search/:query' });
   });
 
   // Food (Single)
@@ -33,9 +29,7 @@ Router.map(function() {
       // New Meal
       this.route('new');
   });
-  this.route("foods-search-query");
-  this.route("foods-search");
+
 });
 
-export
-default Router;
+export default Router;

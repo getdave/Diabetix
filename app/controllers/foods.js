@@ -6,7 +6,7 @@ export default Ember.ArrayController.extend({
 		queryFoods: function() {
 			var query = this.get('searchQuery').toLowerCase();
 			this.set('searchQuery', ""); // set back to blank as we're transitioning away
-		 	this.transitionToRoute('foods.search.query', query);
+		 	this.transitionToRoute('foods.search', query);
 		}
 	}
 });

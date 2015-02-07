@@ -31,7 +31,7 @@ test("It should use correct Routes for index and search", function() {
     // Search Query
     visit('/foods/search/taco');
     andThen(function() {
-        equal(currentRouteName(), 'foods.search.query');        
+        equal(currentRouteName(), 'foods.search');        
     });
     
 });
@@ -42,7 +42,7 @@ test("It should render search box with suitable placeholder text", function() {
     
     // Index
     visit('/foods').then(function() {
-        equal( find('form.food-search-form input.food-search-input').length, 1, "The navbar was rendered");
+        equal( exists('input.food-search-input'), true, "The navbar was rendered");
         equal( find('input.food-search-input', 'form.food-search-form').attr('placeholder'), 'Search for a Food...');   
     });
 });
@@ -56,7 +56,7 @@ test("It should transition to Food Search Query route upon search submit", funct
     click(searchSubmit);
 
     andThen(function() {
-        equal(currentRouteName(), 'foods.search.query');        
+        equal(currentRouteName(), 'foods.search');        
     });
 });
 
@@ -74,12 +74,16 @@ test("It should add correctly encoded and lowercased search string to correct Fo
 
 
 
+
+
+
+
 /*
 test("It should return results when valid search is submitted ", function() {
     expect(1);
 
     $.mockjax({
-        url: "https://apibeta.nutritionix.com/v2/search/taco/",
+        url: "https://api.nutritionix.com/v1_1/search/taco/",
         dataType: 'json',
         responseText: {
             "total_hits": 4594,
