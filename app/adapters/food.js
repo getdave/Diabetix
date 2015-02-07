@@ -3,7 +3,6 @@ import FoodModel from '../models/food';
 
 export default Ember.Object.extend({
     queryFoods: function(query) {
-        console.log(query);
         // use regular AJAX / Promises calls
         return Ember.$.ajax({
             type: "GET",

@@ -78,11 +78,13 @@ test("It should add correctly encoded and lowercased search string to correct Fo
 
 
 
-/*
+
 test("It should return results when valid search is submitted ", function() {
     expect(1);
 
-    $.mockjax({
+    Ember.$.mockjaxSettings.logging = false;
+
+    Ember.$.mockjax({
         url: "https://api.nutritionix.com/v1_1/search/taco/",
         dataType: 'json',
         responseText: {
@@ -133,4 +135,4 @@ test("It should return results when valid search is submitted ", function() {
         var rows = find(".food-result-list .food-result-item").length;
         equal(rows, 2, rows);
     });
-});*/
+});
