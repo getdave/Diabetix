@@ -74,11 +74,6 @@ test("It should add correctly encoded and lowercased search string to correct Fo
 
 
 
-
-
-
-
-
 test("It should return results when valid search is submitted ", function() {
     expect(3);
 
@@ -144,3 +139,31 @@ test("It should return results when valid search is submitted ", function() {
         equal(foodTwoTitle, "Taco");
     });
 });
+
+
+test("It should show appropriate message when invalid search returns no results", function() {
+    expect(1);
+
+    Ember.$.mockjaxSettings.logging = false;
+
+    Ember.$.mockjax({
+        url: "https://api.nutritionix.com/v1_1/search/dlkmsdlldkk/",
+        dataType: 'json',
+        responseText: {
+            "total_hits":0,
+            "max_score":null,
+            "hits":[]
+        }
+    });
+    
+    visit("/foods/search/dlkmsdlldkk/");
+
+    andThen(function() {
+        var noResultsText = find(".food-result-list p").text();
+        equal(noResultsText, "We didn't find any Foods matching your query. Please try an alternative keyword.");
+    });
+});
+
+
+
+
