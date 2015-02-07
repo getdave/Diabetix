@@ -80,7 +80,7 @@ test("It should add correctly encoded and lowercased search string to correct Fo
 
 
 test("It should return results when valid search is submitted ", function() {
-    expect(1);
+    expect(3);
 
     Ember.$.mockjaxSettings.logging = false;
 
@@ -98,7 +98,7 @@ test("It should return results when valid search is submitted ", function() {
                     "_score": 11.992755,
                     "fields": {
                         "item_id": "513fceb775b8dbbc2100306a",
-                        "item_name": "Fast foods, taco with beef, cheese and lettuce, soft - 1 each taco",
+                        "item_name": "Cheese Taco",
                         "brand_name": "USDA",
                         "item_description": null,
                         "nf_total_carbohydrate": 20.64,
@@ -133,6 +133,14 @@ test("It should return results when valid search is submitted ", function() {
 
     andThen(function() {
         var rows = find(".food-result-list .food-result-item").length;
+        var foodTitles = find(".food-result-item__name");
+
+        var foodOneTitle = foodTitles.eq(0).text();
+        var foodTwoTitle = foodTitles.eq(1).text();
+
         equal(rows, 2, rows);
+
+        equal(foodOneTitle, "Cheese Taco");
+        equal(foodTwoTitle, "Taco");
     });
 });

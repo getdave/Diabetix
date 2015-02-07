@@ -45,7 +45,8 @@
     "currentURL",
     "currentPath",
     "currentRouteName",
-    "exists"
+    "exists",
+    "shouldHaveText"
   ],
   "node": false,
   "browser": false,

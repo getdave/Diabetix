@@ -1,5 +1,16 @@
 import Ember from 'ember';
 
-export default Ember.Test.registerHelper('exists', function(app, selector) {
-    return !!find(selector).length;
-});
+
+var customHelpers = function() {
+    Ember.Test.registerHelper('exists', function(app, selector) {
+        return !!find(selector).length;
+    });
+
+
+    Ember.Test.registerHelper('shouldHaveText', function(app, element, text) {
+	    equal(Ember.$(element).text(), text);
+	});
+
+}();
+
+export default customHelpers;
