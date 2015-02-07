@@ -26,9 +26,10 @@ app.import('bower_components/ratchet/dist/css/ratchet.css');
 /**
  * TEST ASSETS
  */
-if ( !isProduction ) {
-	app.import( app.bowerDirectory + '/jquery-mockjax/jquery.mockjax.js', { type: 'test' } );
+if (!isProduction) {
+    app.import(app.bowerDirectory + '/jquery-mockjax/jquery.mockjax.js', {
+        type: 'test'
+    });
 }
-
 
 module.exports = app.toTree();

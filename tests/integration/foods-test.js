@@ -15,7 +15,7 @@ module('Foods Search Integration', {
     },
     teardown: function() {
         Ember.run(App, App.destroy);
-        $.mockjax.clear();
+        Ember.$.mockjax.clear();
     }
 });
 
