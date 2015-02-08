@@ -13,18 +13,23 @@ export default Ember.Object.extend({
 
         // creates new Ember objects and store them into the results Array
         response.hits.forEach(function(food) {
-            var newFood = FoodModel.create(food);
+            var newFood = FoodModel.create(food.fields);
             results.push( newFood );
-        });
+        });        
 
         // finally returns the array full of Ember Objects
         return results;
     },
 
-    findAll: function(query, queryOptions) {
+    buildUrl: function(query) {
+        query = query.toLowerCase();
+        return encodeURI("https://api.nutritionix.com/v1_1/search/" + query + "/");
+    },
+
+    findAll: function(query, queryParams) {
         var _this = this;
 
-        var ajaxData = {
+        var ajaxDataParams = {
             "filters": {
                 "item_type": 3
             },
@@ -36,17 +41,24 @@ export default Ember.Object.extend({
             "fields": "item_id,item_name,item_description,nf_total_carbohydrate,brand_name,nf_servings_per_container,nf_serving_size_qty,nf_serving_size_unit,nf_serving_weight_grams"
         };
 
-        queryOptions = queryOptions || {};
-        Ember.$.extend(ajaxData, _this.apiConfig, queryOptions);
+        // Allow default params to be overidden
+        Ember.$.extend(ajaxDataParams, _this.apiConfig, queryParams || {});
 
         
         // Wrap in Promise due to run loop issues...
         return new Ember.RSVP.Promise(function(resolve){
-            Ember.$.getJSON("https://api.nutritionix.com/v1_1/search/" + query + "/", ajaxData, function(response) {
-                resolve( _this.parseResponse(response) );
+            Ember.$.ajax({
+                url: "https://api.nutritionix.com/v1_1/search/" + query + "/",
+                data: ajaxDataParams,
+                dataType: "json",
+                type: "GET",
+                success: function(response) {
+                    resolve( _this.parseResponse(response) );
+                }
             });
         });
     },
+
     getFood: function(food_id) {
         // use regular AJAX / Promises calls
         return Ember.$.ajax({

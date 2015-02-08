@@ -1,16 +1,16 @@
 <ul class="food-result-list table-view">
 {{#each}}
-	<li {{bind-attr id="fields.item_id"}} class="food-result-item table-view-cell">
-		{{#link-to "food" fields.item_id class="navigate-right"}}
+	<li {{bind-attr id="item_id"}} class="food-result-item table-view-cell">
+		{{#link-to "food" item_id class="navigate-right"}}
 			
-			<span class="food-result-item__name">{{fields.item_name}}</span>
+			<span class="food-result-item__name">{{item_name}}</span>
 
 			<p>
-				{{#if fields.brand_name}}
-					{{fields.brand_name}}					 |
+				{{#if brand_name}}
+					{{brand_name}}					 |
 				{{/if}}
 
-				Typical serving: {{fields.nf_serving_size_qty}} {{fields.nf_serving_size_unit}}
+				Typical serving: {{nf_serving_size_qty}} {{nf_serving_size_unit}}
 			</p>
 		{{/link-to}}
 	</li>
