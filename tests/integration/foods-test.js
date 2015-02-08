@@ -5,12 +5,60 @@ import startApp from '../helpers/start-app';
 var App;
 var searchInput;
 var searchSubmit;
+var defaultXHR;
 
 module('Foods Search Integration', {
     setup: function() {
         App = startApp();
         searchInput = 'input.food-search-input';
         searchSubmit = '.food-search-submit';
+
+        // Mock API call
+        Ember.$.mockjaxSettings.logging = false;
+        defaultXHR = Ember.$.mockjax({
+            url: "https://api.nutritionix.com/v1_1/search/*", // match against all queries to ensure XHR is never run
+            dataType: 'json',
+            responseText: {
+                "total_hits": 4594,
+                "max_score": 11.992755,
+                "hits": [
+                    {
+                        "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+                        "_type": "item",
+                        "_id": "513fceb775b8dbbc2100306a",
+                        "_score": 11.992755,
+                        "fields": {
+                            "item_id": "513fceb775b8dbbc2100306a",
+                            "item_name": "Cheese Taco",
+                            "brand_name": "USDA",
+                            "item_description": null,
+                            "nf_total_carbohydrate": 20.64,
+                            "nf_servings_per_container": null,
+                            "nf_serving_size_qty": 1,
+                            "nf_serving_size_unit": "each taco",
+                            "nf_serving_weight_grams": 102
+                        }
+                    },
+                    {
+                        "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
+                        "_type": "item",
+                        "_id": "513fc9cb673c4fbc2600536a",
+                        "_score": 4.0412245,
+                        "fields": {
+                            "item_id": "513fc9cb673c4fbc2600536a",
+                            "item_name": "Taco",
+                            "brand_name": "Taco Inn",
+                            "item_description": "Taco",
+                            "nf_total_carbohydrate": 33.25,
+                            "nf_servings_per_container": null,
+                            "nf_serving_size_qty": 1,
+                            "nf_serving_size_unit": "taco",
+                            "nf_serving_weight_grams": null
+                        }
+                    }
+                ]
+            }
+        });
 
     },
     teardown: function() {
@@ -77,52 +125,7 @@ test("It should add correctly encoded and lowercased search string to correct Fo
 test("It should return results when valid search is submitted ", function() {
     expect(3);
 
-    Ember.$.mockjaxSettings.logging = false;
-
-    Ember.$.mockjax({
-        url: "https://api.nutritionix.com/v1_1/search/taco/",
-        dataType: 'json',
-        responseText: {
-            "total_hits": 4594,
-            "max_score": 11.992755,
-            "hits": [
-                {
-                    "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
-                    "_type": "item",
-                    "_id": "513fceb775b8dbbc2100306a",
-                    "_score": 11.992755,
-                    "fields": {
-                        "item_id": "513fceb775b8dbbc2100306a",
-                        "item_name": "Cheese Taco",
-                        "brand_name": "USDA",
-                        "item_description": null,
-                        "nf_total_carbohydrate": 20.64,
-                        "nf_servings_per_container": null,
-                        "nf_serving_size_qty": 1,
-                        "nf_serving_size_unit": "each taco",
-                        "nf_serving_weight_grams": 102
-                    }
-                },
-                {
-                    "_index": "f762ef22-e660-434f-9071-a10ea6691c27",
-                    "_type": "item",
-                    "_id": "513fc9cb673c4fbc2600536a",
-                    "_score": 4.0412245,
-                    "fields": {
-                        "item_id": "513fc9cb673c4fbc2600536a",
-                        "item_name": "Taco",
-                        "brand_name": "Taco Inn",
-                        "item_description": "Taco",
-                        "nf_total_carbohydrate": 33.25,
-                        "nf_servings_per_container": null,
-                        "nf_serving_size_qty": 1,
-                        "nf_serving_size_unit": "taco",
-                        "nf_serving_weight_grams": null
-                    }
-                }
-            ]
-        }
-    });
+    
     
     visit("/foods/search/taco/");
 
@@ -144,10 +147,15 @@ test("It should return results when valid search is submitted ", function() {
 test("It should show appropriate message when invalid search returns no results", function() {
     expect(1);
 
-    Ember.$.mockjaxSettings.logging = false;
+    // Setup Food that won't exist
+    var nonExistentFoodQuery = "this-food-will-not-exist-because-i-just-made-it-up";
 
+    // Clear default API call
+    Ember.$.mockjax.clear(defaultXHR);
+
+    // Define API call which will return no returns
     Ember.$.mockjax({
-        url: "https://api.nutritionix.com/v1_1/search/dlkmsdlldkk/",
+        url: "https://api.nutritionix.com/v1_1/search/" + nonExistentFoodQuery + "/",
         dataType: 'json',
         responseText: {
             "total_hits":0,
@@ -156,7 +164,7 @@ test("It should show appropriate message when invalid search returns no results"
         }
     });
     
-    visit("/foods/search/dlkmsdlldkk/");
+    visit("/foods/search/" + nonExistentFoodQuery + "/");
 
     andThen(function() {
         var noResultsText = find(".food-result-list p").text();
