@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 		this.controllerFor("foods").set('searchQuery', query);	
 		var adapter = FoodAdapter.create();
 
-		return adapter.queryFoods(query);
+		return adapter.findAll(query);
 	
 	},
 	serialize: function(query) {

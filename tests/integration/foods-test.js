@@ -124,8 +124,6 @@ test("It should add correctly encoded and lowercased search string to correct Fo
 
 test("It should return results when valid search is submitted ", function() {
     expect(3);
-
-    
     
     visit("/foods/search/taco/");
 
